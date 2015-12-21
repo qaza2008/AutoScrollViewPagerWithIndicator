@@ -408,6 +408,17 @@ rivate List<String> dataList;
 * 和直接调用大同小异,此次直接作为header.
 * 由于有了手势的判断处理,不会有多余的判断了.
 
+Welcome To My Website
+---
+
+[http://androidso.com](http://androidso.com)
+---
+
+
+  
+  
+
+
 
 
 
