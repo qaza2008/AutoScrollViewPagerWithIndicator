@@ -146,13 +146,19 @@ public class AutoScrollViewPagerWithIndicator extends FrameLayout {
 
                 mDownX = ev.getX();
                 mDownY = ev.getY();
+                getParent().requestDisallowInterceptTouchEvent(true);
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                if (Math.abs(ev.getX() - mDownX) > (ev.getY() - mDownY)) {
+
+
+                Log.d("ACTION_MOVE" , "X:"+Math.abs(ev.getX() - mDownX)+ " : Y :"+  (ev.getY() - mDownY));
+                if (Math.abs(ev.getX() - mDownX) > Math.abs(ev.getY() - mDownY)) {
+                    Log.d("ACTION_MOVE" , "X>Y");
                     getParent().requestDisallowInterceptTouchEvent(true);
 
                 } else {
+                    Log.d("ACTION_MOVE" , "X<Y");
                     getParent().requestDisallowInterceptTouchEvent(false);
                 }
 
@@ -164,23 +170,5 @@ public class AutoScrollViewPagerWithIndicator extends FrameLayout {
 
         }
         return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-
-        return super.onInterceptTouchEvent(ev);
-
-
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    public void setOnClickListener(OnClickListener l) {
-        super.setOnClickListener(l);
     }
 }
